@@ -144,8 +144,8 @@
             var x = event.pageX + options.offsetX,
                 y = event.pageY + options.offsetY;
             if (options.autoPosition) {
-				var xx, yy,
-				    win = getWindow(),
+                var xx, yy,
+                    win = getWindow(),
                     boxW = this.outerWidth(),
                     boxH = this.outerHeight();
 
