@@ -4,12 +4,12 @@
  *
  * Refer to http://www.learningjquery.com/2009/12/binding-multiple-events-to-reduce-redundancy-with-event-delegation-tooltips
  *
- * Copyright (c) 2007 Tony Chen (tonychen+jQuery[at]finenet[dot]com[dot]tw)
+ * Copyright (c) 2009,2010 Tony Chen (tonychen+jQuery at finenet dot com dot tw)
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  *
- * Version: 1.0
+ * Version: 1.1
  */
 (function($) {
     var $liveTip;
@@ -144,22 +144,21 @@
             var x = event.pageX + options.offsetX,
                 y = event.pageY + options.offsetY;
             if (options.autoPosition) {
-                var win = getWindow(),
+				var xx, yy,
+				    win = getWindow(),
                     boxW = this.outerWidth(),
                     boxH = this.outerHeight();
 
-                x -= win.left;
-                if (x+boxW >= win.width) {
-                    if (boxW+options.offsetX+4 < x) x -= boxW + options.offsetX + 4;
+                xx = x - win.left;
+                if (xx+boxW >= win.width) {
+                    if (boxW+options.offsetX+4 < xx) x -= boxW + options.offsetX + 4;
                 }
-                x += win.left;
 
-                y -= win.top;
-                if (y+boxH >= win.height) {
-                    y = win.height - boxH;
-                    if (y < 0) y = 0;
+                yy = y - win.top;
+                if (yy+boxH >= win.height) {
+                    yy = win.height - boxH;
+                    y = (yy < 0 ? 0 : yy) + win.top;
                 }
-                y += win.top;
             }
             this.css({top:y, left:x});
         },
