@@ -4,11 +4,14 @@
 $datetime = date('Y-m-d H:i:s');
 $node = htmlspecialchars($_REQUEST['node']);
 $value = htmlspecialchars($_REQUEST['value']);
-$imgs = array('dll','doc','htm','mp3','mpeg','pdf','psd','rar','rm','swf','txt','xls','xml','zip');
+$imgs = array(
+        "cRm1bCj", "Wiq19LF", "BJStvXc", "HyVmv4Q", "zRMwTyb", "eCW2p5L",
+        "4LYFGfg", "kJnR2ZC", "zkToIWW", "AQAehMg", "sNAV7DF", "c8iElky",
+        "vCw3Fkc", "MxXaTPG"
+    );
 $images = '';
-for ($i = 0; $i < count($imgs); $i++) {
-	$v = $imgs[$i];
-	$images .= "\t<img width=\"64\" height=\"64\" src=\"http://dl.dropbox.com/u/3232178/icons/icon-{$v}.jpg\" />";
+foreach ($imgs as $v) {
+    $images .= "\t<img width=\"64\" height=\"64\" src=\"//i.imgur.com/{$v}.jpg\">";
 }
 
 echo <<<__EOT__
@@ -18,5 +21,3 @@ echo <<<__EOT__
 ${images}
 </div>
 __EOT__;
-
-?>
